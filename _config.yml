@@ -17,7 +17,7 @@ title: Sehee's Blog
 description: 연세대학교 통계데이터사이언스학과 대학원생
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://sehee-lim.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-repository: just-the-docs/just-the-docs # for github-metadata
+repository: sehee-lim/sehee-lim.github.io # for github-metadata
 
 permalink: pretty
 
@@ -101,8 +101,8 @@ heading_anchors: true
 
 # Aux links for the upper right navigation
 aux_links:
-  "Just the Docs on GitHub":
-    - "https://sehee-lim.github.io"
+  "GitHub":
+    - "//github.com/sehee-lim/sehee-lim.github.io"
 
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: false
@@ -132,7 +132,7 @@ last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https:/
 
 
 # Footer "Edit this page on GitHub" link text
-gh_edit_link: true # show or hide edit this page link
+gh_edit_link: false # show or hide edit this page link
 gh_edit_link_text: "Edit this page on GitHub"
 gh_edit_repository: "https://sehee-lim.github.io" # the github URL for your repo
 gh_edit_branch: "main" # the branch that your docs is served from
