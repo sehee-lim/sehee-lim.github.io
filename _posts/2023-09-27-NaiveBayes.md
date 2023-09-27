@@ -5,8 +5,6 @@ date: 2023-09-27
 ---
 
 
-## Naive Bayes
-
 **Naive Bayes** classifier assumes that the effect of a particular feature in a class is independent of other features. This assumption simplifies computation, and that's why it is considered as naive.
 
 ## Example 1
@@ -67,6 +65,8 @@ X.shape   # 97개의 feature를 가진 17개의 sample
     (17, 97)
 
 
+<br>
+<br>
 
 2. Train-Test Split
 
@@ -74,6 +74,9 @@ X.shape   # 97개의 feature를 가진 17개의 sample
 ```python
 X_train, X_test, y_train, y_test = train_test_split(X, labels, test_size = 0.3, random_state = 10)
 ```
+
+<br>
+<br>
 
 3. Training
 
@@ -86,6 +89,10 @@ clf.fit(X_train, y_train)
 
 predicted = clf.predict(X_test)
 ```
+
+<br>
+<br>
+
 
 4. Model Evaluation
 
@@ -115,9 +122,13 @@ plt.show()
 
 
     
-![png](output_13_0.png)
+![png](/assets/output_13_0.png)
     
 
+<br>
+<br>
+<br>
+<br>
 
 ## Example 2
 
@@ -173,8 +184,11 @@ plt.show()
 
 
     
-![png](output_18_0.png)
+![png](/assets/output_18_0.png)
     
+
+<br>
+<br>
 
 
 2. Train-Test Split
@@ -185,6 +199,9 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size = 0.33, random_state = 10
 )
 ```
+
+<br>
+<br>
 
 3. Training
 
@@ -211,6 +228,9 @@ print("Predicted Value:", predicted[0])
     Actual Value: 2
     Predicted Value: 2
     
+
+<br>
+<br>
 
 4. Model Evaluation
 
@@ -242,16 +262,14 @@ plt.show()
 
 
     
-![png](output_25_0.png)
+![png](/assets/output_25_0.png)
     
 
+<br>
+<br>
+<br>
 
 참고한 페이지
 
 https://www.datacamp.com/tutorial/naive-bayes-scikit-learn
 
-
-
-```python
-
-```
