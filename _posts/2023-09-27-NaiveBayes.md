@@ -19,7 +19,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 ```
 
-1. 가상 데이터 생성
+**가상 데이터 생성**
 
 
 ```python
@@ -68,7 +68,7 @@ X.shape   # 97개의 feature를 가진 17개의 sample
 <br>
 <br>
 
-2. Train-Test Split
+**Train-Test Split**
 
 
 ```python
@@ -78,7 +78,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, labels, test_size = 0.3, 
 <br>
 <br>
 
-3. Training
+**Training**
 
 MultinomialNB 사용
 
@@ -94,7 +94,7 @@ predicted = clf.predict(X_test)
 <br>
 
 
-4. Model Evaluation
+**Model Evaluation**
 
 
 ```python
@@ -134,7 +134,8 @@ plt.show()
 
 : label이 3개일 때
 
-1. 가상 데이터 생성
+
+**가상 데이터 생성**
 
 
 ```python
@@ -191,7 +192,7 @@ plt.show()
 <br>
 
 
-2. Train-Test Split
+**Train-Test Split**
 
 
 ```python
@@ -203,7 +204,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 <br>
 <br>
 
-3. Training
+**Training**
 
 GaussianNB 사용
 
@@ -232,7 +233,7 @@ print("Predicted Value:", predicted[0])
 <br>
 <br>
 
-4. Model Evaluation
+**Model Evaluation**
 
 
 ```python
