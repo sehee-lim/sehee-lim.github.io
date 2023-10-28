@@ -42,7 +42,7 @@ $$
 L_{ce} = \sum_i t_i \times \log(s_i)
 $$
 
-Supervied training loss는 다음과 같다. 여기서 $\log P(y_i | x_i, \theta)$는 주어진 입력 $x_i$와 모델 parameter $\theta$에 대해 $i$번째 위치에 $y_i$가 나타날 확률을 나타낸다. $y_i$는 실제 $i$번째 위치의 label이다. 그리고 $x_i$는 $i$번째 token을 제외한 모든 token의 sequence이다.
+Supervied training loss는 다음과 같다. 여기서 $\log P(y_i \vert x_i, \theta)$는 주어진 입력 $x_i$와 모델 parameter $\theta$에 대해 $i$번째 위치에 $y_i$가 나타날 확률을 나타낸다. $y_i$는 실제 $i$번째 위치의 label이다. 그리고 $x_i$는 $i$번째 token을 제외한 모든 token의 sequence이다.
 
 $$
 L_{mlm} = \sum_{i \in M} \log P(y_i | x_i, \theta)
