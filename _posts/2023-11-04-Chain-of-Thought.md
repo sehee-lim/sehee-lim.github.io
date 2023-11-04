@@ -101,3 +101,10 @@ Exemplar에 대한 민감도는 중요하다. 예를 들어 few-shot learning에
 **Through experiments on arithmetic, symbolic, and commonsense reasoning, we find that chain-of-thought reasoning is an emergent property of model scale that allows sufficiently large language models to perform reasoning tasks that otherwise have flat scaling curves.**
 
 모델이 일정 규모 이상으로 커지면 이전에는 보이지 않았던 새로운 특성이 나타날 수 있다. 즉 모델이 매우 크면 chain-of-thought과 같은 새로운 방식을 개발할 수 있는데 이것은 모델이 작을 때는 나타나지 않던 특성이다. 모델의 크기를 늘려도 성능이 거의 향상되지 않는 상태를 flat scaling curve라고 한다. 즉 모델의 크기를 증가시키는 것만으로는 성능 향상에 한계가 있다는 것이다. 이 chain-of-thought을 통해서 이 한계를 넘어서 성능을 향상시킬 수 있다. 결론적으로 모델이 충분히 크디면 이전에는 성능이 정체되었던 영역에서도 복잡한 추론 작업을 할 수 있는 능력을 발달시킬 수 있다.
+
+<br>
+<br>
+
+paper
+
+[https://arxiv.org/abs/2201.11903](https://arxiv.org/abs/2201.11903)
