@@ -14,7 +14,7 @@ SentencePiece는 **pre-tokenization 없이** 원시 데이터에 바로 적용�
 
 **Four Components of SentencePiece**
 
-1. Normalizer: 데이터를 표준적인 형태로 변환한다. 예를 들어 'é'라는 문자를 'e’로 변경한다.
+1. Normalizer: 데이터를 표준적인 형태로 변환한다. 예를 들어 'é'라는 문자를 'e'로 변경한다.
 2. Trainer: 위에서 normalize된 텍스트를 사용하여 subword로 분할하는 모델을 훈련시킨다. BPE나 Unigram과 같은 subword 분할 모델은 매개변수로 선택된다.
 3. Encoder: Normalizer를 실행하고 Trainer로 텍스트를 subword로 tokenization한다.
 4. Decoder: Encoder와 반대로 subword sequence를 받아서 원래의 정규화된 텍스트로 재구성한다.
