@@ -29,7 +29,7 @@ SentencePiece는 **pre-tokenization 없이** 원시 데이터에 바로 적용�
 
 ![Untitled](/assets/SentencePiece%20A%20Simple%20and%20Language%20Independent%20Su%206d7bbff526ba441ba4c64b18b039759f/Untitled.png)
 
-여기서 tokenization된 형태에는 공백이 없기 때문에 원시 데이터와 똑같이 복원될 수 없다. 원본 텍스트로 정확하게 되돌리기 위해서는 언어 별로 특정 처리가 필요합니다. 예를 들어 일본어와 같은 경우 공백이 없기 때문에 원시 데이터로 복원할 때 공백의 부재는 중요한 고려 사항이 아니다.
+여기서 tokenization된 형태에는 공백이 없기 때문에 원시 데이터로 똑같이 복원할 수 없다. 원본 텍스트로 정확하게 되돌리기 위해서는 언어 별로 특정 처리가 필요하다. 예를 들어 일본어와 같은 경우 공백이 없기 때문에 원시 데이터로 복원할 때 공백의 부재는 중요한 고려 사항이 아니다.
 
 ![Untitled](/assets/SentencePiece%20A%20Simple%20and%20Language%20Independent%20Su%206d7bbff526ba441ba4c64b18b039759f/Untitled%201.png)
 
@@ -53,7 +53,7 @@ Subword 분할을 하기 전에 pre-tokenization을 한 이유는 효율성 때�
 
 **Self-contained Models**
 
-어떻게 데이터가 pre-tokenization되었는지에 따라 BLUE 점수에 차이가 있었다. 따라서 SentencePiece는 전처리에 대한 모든 규칙과 매개변수를 모델 파일 자체에 포함시켰다. 그래서 동일한 모델 파일을 사용하는 한 동일한 실험 설정을 재현할 수 있다. 즉 모델 파일에 의해서만 결정되며 외부 의존성이 아예 없다.
+어떻게 데이터가 pre-tokenization되었는지에 따라 BLEU 점수에 차이가 있었다. 따라서 SentencePiece는 전처리에 대한 모든 규칙과 매개변수를 모델 파일 자체에 포함시켰다. 그래서 동일한 모델 파일을 사용하는 한 동일한 실험 설정을 재현할 수 있다. 즉 모델 파일에 의해서만 결정되며 외부 의존성이 아예 없다.
 
 <br>
 <br>
