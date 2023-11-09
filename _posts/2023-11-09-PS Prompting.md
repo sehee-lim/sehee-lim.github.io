@@ -90,6 +90,8 @@ PS+ Prompting이 PS Prompting보다 성능이 좋기에 PS+ Prompting만 포함�
 
 Last Letters 문제에 대해서는 PS+ Prompting은 Manual-CoT와 Zero-shot-CoT보다 성능이 높다. Coin Flip 문제에 대해서는 Manual-CoT보다 성능이 낮지만 Zero-shot-CoT보다는 성능이 높다.
 
+<br>
+
 ![Untitled](/assets/Plan-and-Solve%20Prompting%20Improving%20Zero-Shot%20Chain%20110e862b3c9d4de7beba672a80fd43fa/Untitled%207.png)
 
 Variable definition과 Plan existence와 calculation error, missing-reasoning step error 사이 상관관계를 보면 음수이다. 즉 Variable definition과 계획이 없으면 calculation error와 missing-reasoning step error이 늘어날 수 있다.
