@@ -25,7 +25,7 @@ Gamma Poisson Shrinker는 **베이지안 방법**을 적용하여 실마리 정�
 
 의약품과 이상 사례 쌍을 만든다. 각 쌍마다 실제 보고 건수와 기대되는 보고 건수를 구한다. 그리고 실제 보고 건수와 기대되는 보고 건수를 비교한다. **기대되는 보고 건수보다 실제 보고 건수가 월등히 높을 때 실마리 정보라고 탐지**한다.
 
-![위 그래프는 meningococcus A,C,Y,W-135, tetravalent purified polysaccharides antigen conjugated라는 약물 투여 중 발견된 이상 사례 5개를 나타냈다. 이때 CRYING ABNORMAL이라는 이상 사례가 기대되는 보고 건수에 비해 월등히 높다. 이러한 경우 실마리 정보라고 탐지될 것이다.](assets/Gamma%20Poisson%20Shrinker%2025ae7c9af23a46e2be678d725b04bb34/Untitled.png)
+![위 그래프는 meningococcus A,C,Y,W-135, tetravalent purified polysaccharides antigen conjugated라는 약물 투여 중 발견된 이상 사례 5개를 나타냈다. 이때 CRYING ABNORMAL이라는 이상 사례가 기대되는 보고 건수에 비해 월등히 높다. 이러한 경우 실마리 정보라고 탐지될 것이다.](/assets/Gamma%20Poisson%20Shrinker%2025ae7c9af23a46e2be678d725b04bb34/Untitled.png)
 
 위 그래프는 meningococcus A,C,Y,W-135, tetravalent purified polysaccharides antigen conjugated라는 약물 투여 중 발견된 이상 사례 5개를 나타냈다. 이때 CRYING ABNORMAL이라는 이상 사례가 기대되는 보고 건수에 비해 월등히 높다. 이러한 경우 실마리 정보라고 탐지될 것이다.
 
@@ -34,7 +34,7 @@ Gamma Poisson Shrinker는 **베이지안 방법**을 적용하여 실마리 정�
 
 **Notation**
 
-![Untitled](assets/Gamma%20Poisson%20Shrinker%2025ae7c9af23a46e2be678d725b04bb34/Untitled%201.png)
+![Untitled](/assets/Gamma%20Poisson%20Shrinker%2025ae7c9af23a46e2be678d725b04bb34/Untitled%201.png)
 
 <br>
 <br>
@@ -80,11 +80,11 @@ $$
 \lambda_{ij} \ \sim \ w \times Gamma(\alpha_1, \beta_1) + (1 - w) \times Gamma(\alpha_2, \beta_2)
 $$
 
-![Untitled](assets/Gamma%20Poisson%20Shrinker%2025ae7c9af23a46e2be678d725b04bb34/Untitled%202.png)
+![Untitled](/assets/Gamma%20Poisson%20Shrinker%2025ae7c9af23a46e2be678d725b04bb34/Untitled%202.png)
 
 이렇게 hyperparameter를 구하게 되면 데이터의 분포와 비슷한 사전 분포가 만들어진다.
 
-![위 그래프는 relative report rate의 히스토그램에 empirical Bayes method로 구한 사전 분포를 그 위에 나타낸 것이다. 데이터와 비슷하게 사전 분포를 잘 구했음을 알 수 있다.](assets/Gamma%20Poisson%20Shrinker%2025ae7c9af23a46e2be678d725b04bb34/Untitled%203.png)
+![위 그래프는 relative report rate의 히스토그램에 empirical Bayes method로 구한 사전 분포를 그 위에 나타낸 것이다. 데이터와 비슷하게 사전 분포를 잘 구했음을 알 수 있다.](/assets/Gamma%20Poisson%20Shrinker%2025ae7c9af23a46e2be678d725b04bb34/Untitled%203.png)
 
 위 그래프는 relative report rate의 히스토그램에 empirical Bayes method로 구한 사전 분포를 그 위에 나타낸 것이다. 데이터와 비슷하게 사전 분포를 잘 구했음을 알 수 있다.
 
@@ -95,7 +95,7 @@ $$
 
 감마 분포가 포아송 분포의 conjugate prior이므로 사후 분포는 혼합 감마 분포로 나온다.
 
-![Untitled](assets/Gamma%20Poisson%20Shrinker%2025ae7c9af23a46e2be678d725b04bb34/Untitled%204.png)
+![Untitled](/assets/Gamma%20Poisson%20Shrinker%2025ae7c9af23a46e2be678d725b04bb34/Untitled%204.png)
 
 <br>
 <br>
