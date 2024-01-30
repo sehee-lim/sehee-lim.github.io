@@ -56,7 +56,7 @@ LM_\phi(z_i, h_{<i}), & \text{otherwise}
 \end{cases}
 $$
 
-Prefix 파라미터를 직접 업데이트하는 것은 불안정하게 작동해서 성능이 약간 떨어진다고 한다. 이를 해결하기 위해서 $P_\theta[i, :] = \text{MLP}_\theta (P'_\theta[i, :])$로 표현한다. 여기서 $P_\theta'$는 더 작은 행렬이다. $P_\theta$와 $P_\theta'$는 prefix의 길이가 같기 때문에 동일한 행의 개수를 가지지만 열의 차원은 다르다. 파라미터의 학습이 끝나면$P_\theta$만 저장된다.
+Prefix 파라미터를 직접 업데이트하는 것은 불안정하게 작동해서 성능이 약간 떨어진다고 한다. 이를 해결하기 위해서 $P_\theta[i, :] = \text{MLP} _ \theta (P'_ \theta [i, :] )$로 표현한다. 여기서 $P_\theta'$는 더 작은 행렬이다. $P_\theta$와 $P_\theta'$는 prefix의 길이가 같기 때문에 동일한 행의 개수를 가지지만 열의 차원은 다르다. 파라미터의 학습이 끝나면$P_\theta$만 저장된다.
 
 <br>
 
