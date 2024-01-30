@@ -46,7 +46,7 @@ Prefix-tuning의 장점은 하나의 언어 모델이 여러 작업을 동시에
 
 ### Method
 
-먼저 입력에 prefix를 추가한다. 만약 autoregressive 언어 모델이라면 입력은 $z = [\text{PREFIX};x;y]$가 된다. 만약 인코더와 디코더가 모두 있는 언어 모델이라면 입력은 $z=[\text{PREFIX};x;\text{PREFIX}';y]$가 된다. Prefix의 index를 $\text{P}_\text{idx}$라고 한다. Prefix 파라미터는 행렬 $P_\theta$에 저장되어 학습되며 이 행렬의 차원은 $\vert\text{P}_\text{idx}\vert \times \text{dim}(h_i)$이다. 언어 모델의 파라미터 $\phi$는 고정되고 prefix 파라미터인 $\theta$만이 학습된다. 그리고 $i$ 시점의 출력 $h_i$은 다음과 같다. 만약 prefix 부분에 속한다면 prefix 파라미터 행렬 $P_\theta$에서 직접 복사된다. 그렇지 않은 경우에는 이전 출력과 입력을 바탕으로 언어 모델에 의해 계산된다.
+먼저 입력에 prefix를 추가한다. 만약 autoregressive 언어 모델이라면 입력은 $z = [\text{PREFIX};x;y]$가 된다. 만약 인코더와 디코더가 모두 있는 언어 모델이라면 입력은 $z=[\text{PREFIX};x;\text{PREFIX}';y]$가 된다. Prefix의 index를 $\text{P} _ \text{idx}$라고 한다. Prefix 파라미터는 행렬 $P_\theta$에 저장되어 학습되며 이 행렬의 차원은 $\vert\text{P}_{\text{idx}}\vert \times \text{dim}(h_i)$이다. 언어 모델의 파라미터 $\phi$는 고정되고 prefix 파라미터인 $\theta$만이 학습된다. 그리고 $i$ 시점의 출력 $h_i$은 다음과 같다. 만약 prefix 부분에 속한다면 prefix 파라미터 행렬 $P_\theta$에서 직접 복사된다. 그렇지 않은 경우에는 이전 출력과 입력을 바탕으로 언어 모델에 의해 계산된다.
 
 $$
 h_i = 
