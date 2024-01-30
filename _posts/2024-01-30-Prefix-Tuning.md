@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Prefix-Tuning: Optimizing Continuous Prompts for Generation"
-date: 2023-12-27
+category: "NLP"
+date: 2024-01-30
 ---
 
 <br>
