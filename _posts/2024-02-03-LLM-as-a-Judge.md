@@ -15,12 +15,12 @@ date: 2024-02-03
 
 <br>
 
-1. **MT-bench**: 80개의 고품질 multi-turn 질문으로 구성되었다. 챗봇의 multi-turn 대화 능력과 지시 사항을 따르는 능력을 평가한다. 이 두 가지 능력은 인간의 선호도를 평가하는 중요한 요소이다. 또한 MT-bench는 추론 능력이나 수학 문제 해결 능력으로도 챗봇을 평가할 수 있다. 총 8개의 카테고리(writing, roleplay, extraction, reasoning, math, coding, knowledge I (STEM), knowledge II (humanities/social science))가 있다. 각 카테고리에 대해 10개의 후속 질문을 디자인했다.
+- **MT-bench**: 80개의 고품질 multi-turn 질문으로 구성되었다. 챗봇의 multi-turn 대화 능력과 지시 사항을 따르는 능력을 평가한다. 이 두 가지 능력은 인간의 선호도를 평가하는 중요한 요소이다. 또한 MT-bench는 추론 능력이나 수학 문제 해결 능력으로도 챗봇을 평가할 수 있다. 총 8개의 카테고리(writing, roleplay, extraction, reasoning, math, coding, knowledge I (STEM), knowledge II (humanities/social science))가 있다. 각 카테고리에 대해 10개의 후속 질문을 디자인했다.
     
 ![MT-bench의 예시 (Writing, Math, Knowledge)](/assets/Judging%20LLM-as-a-Judge%20with%20MT-Bench%20and%20Chatbot%20A%20835d9a0ddfcc46658e6dd366a02c94c2/Untitled%201.png)
     
     
-2. **Chatbot Arena**: 실생활과 유사한 상황에서 챗봇들이 어떻게 대응하는지 비교하고 평가하기 위해 개발된 벤치마크이다. 실제 시나리오에서 익명의 챗봇 간에 전투를 하는 크라우드소싱 플랫폼이다. 이 플랫폼에서 사용자들은 동시에 두 챗봇과 대화를 진행하고 자신이 선호하는 응답을 제공한 모델에 투표한다. 투표가 끝난 이후에는 모델의 정체가 공개된다. 한 달 동안 Chatbot Arena를 운영한 결과 약 3만 개의 투표가 수집되었다. 이 플랫폼은 사전에 정의된 질문을 사용하지 않기 때문에 사용자들의 다양한 관심사를 바탕으로 다양한 사용 사례를 수집할 수 있었다.
+- **Chatbot Arena**: 실생활과 유사한 상황에서 챗봇들이 어떻게 대응하는지 비교하고 평가하기 위해 개발된 벤치마크이다. 실제 시나리오에서 익명의 챗봇 간에 전투를 하는 크라우드소싱 플랫폼이다. 이 플랫폼에서 사용자들은 동시에 두 챗봇과 대화를 진행하고 자신이 선호하는 응답을 제공한 모델에 투표한다. 투표가 끝난 이후에는 모델의 정체가 공개된다. 한 달 동안 Chatbot Arena를 운영한 결과 약 3만 개의 투표가 수집되었다. 이 플랫폼은 사전에 정의된 질문을 사용하지 않기 때문에 사용자들의 다양한 관심사를 바탕으로 다양한 사용 사례를 수집할 수 있었다.
 
 ![사용자가 본인의 선호도에 따라 모델에 투표함](/assets/Judging%20LLM-as-a-Judge%20with%20MT-Bench%20and%20Chatbot%20A%20835d9a0ddfcc46658e6dd366a02c94c2/Untitled%202.png)
 
