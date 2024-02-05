@@ -34,7 +34,7 @@ Self-Rewarding 모델은 기본적으로 사전 훈련된 언어 모델과 인�
 
 추가로 응답을 평가하는 내용의 데이터도 학습 데이터로 사용한다. 이 데이터는 응답에 대해 평가하라는 내용의 지시사항과 평가 응답으로 이루어져 있다. 위의 Instruction Fine-Tuning 데이터만을 사용해도 되지만 이 데이터를 함께 사용했을 때 모델의 성능이 향상되었다. 지시사항에는 응답을 평가할 때 고려해야 하는 기준들을 포함하고 있어, 모델이 특정 기준에 따라 응답의 질을 평가하게 한다. 그리고 평가 응답은 최종 점수와 함께 그 근거가 되는 chain-of-thought reasoning을 포함한다. 이 데이터는 reward model의 기능을 수행하며, **Evaluation Fine-Tuning (EFT) 데이터**라고 불린다. 이 데이터 또한 Open Assistant 데이터셋에서 만들어진다. Open Assistant 데이터셋에는 사람이 매긴 순위 정보가 포함되어 있다. 이 정보를 바탕으로 EFT 데이터를 구성할 수 있다. 그러나 Open Assistant 데이터셋에는 응답에 대한 0점부터 5점까지의 점수와 그 근거가 되는 chain-of-thought reasoning이 포함되어 있지 않다. 따라서 IFT 데이터로만 미세 조정된 모델을 사용하여 chain-of-thought reasoning과 점수 부여 작업을 수행해야 한다. 이 과정에서는 Open Assistant 데이터셋 내에서 인간에 의해 매겨진 순위와 LLM이 매긴 점수 순위가 비슷한 데이터만을 선별한다.
 
-![Untitled](/assets/elf-Rewarding%20Language%20Models%2057748685a8ac43bc80add1d6bdcbfadd/Untitled%202.png)
+![Untitled](/assets/Self-Rewarding%20Language%20Models%2057748685a8ac43bc80add1d6bdcbfadd/Untitled%202.png)
 
 <br>
 <br>
