@@ -2,7 +2,7 @@
 layout: post
 title: "Self-Rewarding Language Models"
 category: "NLP"
-date: 2024-02-06
+date: 2024-02-05
 --- 
 
 <br>
