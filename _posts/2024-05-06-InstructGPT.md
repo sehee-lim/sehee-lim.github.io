@@ -21,7 +21,7 @@ feedback to ensure they align more closely with user intentions. The
 resulting models are called *InstructGPT*.\
 It is important for language models to be both helpful and honest while
 avoiding causing psychological or social harm due to their utility in
-broad applications. Using the language of @askell2021general, language
+broad applications. Using the language of Askell, language
 models should be built around three key principles: helpfulness, honesty
 and harmlessness. First, they need to be helpful as language models are
 designed to assist in solving problems. Language models must adhere
@@ -40,14 +40,14 @@ their practical application in real-world scenarios.
 Reinforcement learning from human feedback (RLHF) is a methodology aimed
 at supplementing language model performance by using written human
 feedback during training. This approach has been previously utilized in
-specialized tasks such as summarization [@ziegler2020finetuning] and
-translation [@kreutzer2018reliability]. However, this paper extends its
+specialized tasks such as summarization and
+translation. However, this paper extends its
 application broadly across various language tasks.\
 Furthermore, there have been several efforts to reduce harm associated
 with language model outputs. These include applying specific criteria to
-remove documents and thereby filter datasets [@ngo2021mitigating],
-blocking particular words [@xu2021recipes], and using word embedding
-regularization to decrease bias [@liu2020does]. Unlike these methods,
+remove documents and thereby filter datasets,
+blocking particular words, and using word embedding
+regularization to decrease bias. Unlike these methods,
 which often involve some loss of data or a decline in performance, the
 approach in this paper seeks to eliminate harm without significantly
 compromising performance. This was achieved by adding a term that
@@ -59,19 +59,13 @@ training.
 
 ## Methods
 
-![Simplified representation of the three-step process of InstructGPT.
-(1) The pretrained language model is fine-tuned using prompts and
-desirable responses created by humans. (2) Human evaluators rank the
-model's responses, and this data is used to train a reward model. (3)
-The language model is further fine-tuned through reinforcement learning
-to maximize rewards. This figure has been modified from the original
-paper's illustrations to facilitate easier
-understanding.](figure.jpg){#fig:neuralnet-policy
-width="0.8\\linewidth"}
+![figure.jpg](/assets/InstructGPT/figure.jpg)
 
 The following is how InstructGPT was developed, explained step by step.
 This shows how the model was built to better follow user instructions
 and work more effectively.
+
+<br>
 
 **Step 1: Supervised Fine-Tuning (SFT)**
 
@@ -82,7 +76,10 @@ situations. To make the model act more in line with human intentions, it
 undergoes fine-tuning. For this fine-tuning, a dataset is created using
 prompts and labels that consist of desirable responses crafted by
 humans. This data is then used to perform supervised learning to
-fine-tune GPT-3.\
+fine-tune GPT-3.
+
+<br>
+
 **Step 2: Reward Model (RM) Training**
 
 In this phase, another dataset is created. Humans evaluate the responses
@@ -91,7 +88,7 @@ data is then used to train a reward model. The reward model is designed
 to predict the human-preferred output. If it takes in a prompt and
 response, it outputs a scalar reward.
 
-::: defn
+
 $$\text{loss}(\theta) = - \frac{1}{\binom{K}{2}} E_{(x, y_w, y_l) \sim D} \left[ \log \left( \sigma \left( r_{\theta} (x, y_w) - r_{\theta} (x, y_l) \right) \right) \right]$$
 where $r_{\theta}(x, y)$ is the scalar output of the reward model for
 prompt $x$ and completion $y$ with parameters $\theta$, $y_w$ is the
@@ -100,12 +97,13 @@ dataset of human comparisons, and $K$ is the total number of completions
 or responses evaluated, with the binomial coefficient $\binom{K}{2}$
 representing the number of unique pairs that can be formed from $K$
 items.
-:::
 
 This loss function aims to maximize the log odds of the difference
-between the rewards for preferable and less desirable responses.\
-**Step 3: Reinforcement Learning via Proximal Policy Optimization
-(PPO)**
+between the rewards for preferable and less desirable responses.
+
+<br>
+
+**Step 3: Reinforcement Learning via Proximal Policy Optimization (PPO)**
 
 In this step, the supervised model from Step 1 undergoes further
 fine-tuning through reinforcement learning. This process utilizes the
@@ -119,7 +117,7 @@ PPO gradients to prevent severe degradation of performance on the NLP
 dataset. This enhanced version of the model is referred to as PPO-ptx,
 which has been utilized in the development of InstructGPT.
 
-::: defn
+
 $$\text{objective} (\phi) = \mathbb{E}_{(x,y) \sim D_{\pi_\phi^\text{RL}}} \left[ r_{\theta}(x, y) - \beta \log \left( \frac{\pi_{\phi}^{\text{RL}}(y \mid x)}{\pi^{\text{SFT}}(y \mid x)} \right) \right] + \gamma \mathbb{E}_{x \sim D_{\text{pretrain}}} \left[ \log(\pi_{\phi}^{\text{RL}}(x)) \right]$$
 where $\pi_{\phi}^{\text{RL}}$ is the learned RL policy,
 $\pi^{\text{SFT}}$ is the supervised trained model, and
@@ -127,7 +125,7 @@ $D_{\text{pretrain}}$ is the pretraining distribution. The KL reward
 coefficient $\beta$, and the pretraining loss coefficient $\gamma$,
 control the strength of the KL penalty and pretraining gradients
 respectively.
-:::
+
 
 The objective function in RL training includes two key terms: the second
 term uses a logarithmic function to ensure the optimized RL policy does
@@ -141,23 +139,13 @@ its general applicability.
 
 # Results and Limitations
 
-![Comparison of win rates against SFT 175B across different model sizes.
-SFT 175B is a model that has been fine-tuned using Supervised
-Fine-Tuning (SFT). Wins are determined based on human evaluations, with
-models considered superior when they produce outputs preferred over
-those of SFT 175B. InstructGPT (PPO-ptx) and its variants demonstrate
-superior performance over the GPT-3 baselines, GPT and GPT (prompted).
-Figure adapted from the original
-paper.](figure_result.png){#fig:win-rate-comparison
-width="0.9\\linewidth"}
+![figure_result.png](/assets/InstructGPT/figure_result.png)
 
 Labelers preferred the responses generated by InstructGPT over those
 from GPT-3, despite InstructGPT having significantly fewer parameters.
 InstructGPT produced answers that were deemed more favorable by humans
 and were found to be twice as truthful as those from GPT-3. These
-results are shown in Figure
-[2](#fig:win-rate-comparison){reference-type="ref"
-reference="fig:win-rate-comparison"}. Additionally, InstructGPT
+results are shown in the Figure. Additionally, InstructGPT
 generated fewer toxic responses compared to GPT-3. While the model
 exhibits a slight performance degradation on NLP datasets, it holds
 value due to its enhanced truthfulness and reduced toxicity in
