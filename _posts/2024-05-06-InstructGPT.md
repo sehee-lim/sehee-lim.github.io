@@ -19,6 +19,8 @@ honestly following user directives. To address this misalignment, this
 paper introduces a method of fine-tuning language models using human
 feedback to ensure they align more closely with user intentions. The
 resulting models are called *InstructGPT*.\
+
+
 It is important for language models to be both helpful and honest while
 avoiding causing psychological or social harm due to their utility in
 broad applications. Using the language of Askell, language
@@ -43,6 +45,8 @@ feedback during training. This approach has been previously utilized in
 specialized tasks such as summarization and
 translation. However, this paper extends its
 application broadly across various language tasks.\
+
+
 Furthermore, there have been several efforts to reduce harm associated
 with language model outputs. These include applying specific criteria to
 remove documents and thereby filter datasets,
@@ -59,7 +63,7 @@ training.
 
 ## Methods
 
-![figure.jpg](/assets/InstructGPT/figure.jpg)
+![figure.JPG](/assets/InstructGPT/figure.JPG)
 
 The following is how InstructGPT was developed, explained step by step.
 This shows how the model was built to better follow user instructions
@@ -90,6 +94,8 @@ response, it outputs a scalar reward.
 
 
 $$\text{loss}(\theta) = - \frac{1}{\binom{K}{2}} E_{(x, y_w, y_l) \sim D} \left[ \log \left( \sigma \left( r_{\theta} (x, y_w) - r_{\theta} (x, y_l) \right) \right) \right]$$
+
+
 where $r_{\theta}(x, y)$ is the scalar output of the reward model for
 prompt $x$ and completion $y$ with parameters $\theta$, $y_w$ is the
 preferred completion out of the pair of $y_w$ and $y_l$, $D$ is the
@@ -119,6 +125,8 @@ which has been utilized in the development of InstructGPT.
 
 
 $$\text{objective} (\phi) = \mathbb{E}_{(x,y) \sim D_{\pi_\phi^\text{RL}}} \left[ r_{\theta}(x, y) - \beta \log \left( \frac{\pi_{\phi}^{\text{RL}}(y \mid x)}{\pi^{\text{SFT}}(y \mid x)} \right) \right] + \gamma \mathbb{E}_{x \sim D_{\text{pretrain}}} \left[ \log(\pi_{\phi}^{\text{RL}}(x)) \right]$$
+
+
 where $\pi_{\phi}^{\text{RL}}$ is the learned RL policy,
 $\pi^{\text{SFT}}$ is the supervised trained model, and
 $D_{\text{pretrain}}$ is the pretraining distribution. The KL reward
@@ -150,6 +158,8 @@ generated fewer toxic responses compared to GPT-3. While the model
 exhibits a slight performance degradation on NLP datasets, it holds
 value due to its enhanced truthfulness and reduced toxicity in
 responses.\
+
+
 InstructGPT still exhibits several limitations. Despite improvements, it
 still produces toxic and biased responses. Additionally, the model
 requires a large amount of labeled data, which can be costly.
