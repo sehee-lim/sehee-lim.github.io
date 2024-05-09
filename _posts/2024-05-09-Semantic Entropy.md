@@ -23,7 +23,7 @@ date: 2024-05-09
 NLG에서 불확실성을 측정하는 한 방법은 **predictive entropy**를 계산하는 것이 다. 이는 주어진 입력에 대해 출력이 가지는 정보량을 측정한다. 출력의 정보량이 적을수록 높은 entropy 값을 가지게 된다. Predictive entropy는 다음과 같이 계산된다.
 
 $$
-PE(x) = H(Y | x) = -\int p(y | x) \log{p(y|x)} dy
+PE(x) = H(Y \vert x) = -\int p(y \vert x) \log{p(y \vert x)} dy
 $$
 
 여기서 token 수준의 likelihood를 계산하게 되는데, 문제는 우리가 고려해야 할 것이 token 수준이 아니라 **meaning 수준**이라는 것이다. 따라서 token 수준의 likelihood가 아닌 **semantic likelihood**를 사용해야 한다. 예를 들어 "The capital of France is Paris"와 "France’s capital is Paris”는 **meaning 수준에서 비슷한 likelihood**를 가져야 한다. 그러나 token 수준에서 likelihood를 계산하면 두 문장이 같은 의미를 지니고 있는지 제대로 파악할 수 없다.
@@ -40,7 +40,7 @@ $$
 - Predictive distribution은 다음과 같이 계산한다.
     
     $$
-    \log p(s|x) = \sum_i \log p(s_i | s_{<i})
+    \log p(s \vert x) = \sum_i \log p(s_i \vert s_{<i})
     $$
     
     
@@ -60,10 +60,10 @@ $$
 **Step 3. Computing the semantic entropy**
 
 - Token 수준의 likelihood가 아닌 meaning 수준의 likelihood을 계산한다.
-    - Token 수준의 likelihood: $p(s|x) = \prod_i p(s_i | s_{<i}, x)$
-    - Meaning 수준의 likelihood: $p(c|x) = \sum_{s \in c} p(s | x) = \sum_{s \in c} \prod_i p(s_i | s_{<i}, x)$
+    - Token 수준의 likelihood: $p(s \vert x) = \prod_i p(s_i \vert s_{<i}, x)$
+    - Meaning 수준의 likelihood: $p(c \vert x) = \sum_{s \in c} p(s \vert x) = \sum_{s \in c} \prod_i p(s_i \vert s_{<i}, x)$
 - 앞서 계산한 likelihood를 기반으로 semantic entropy를 계산한다.
-    - $SE(X) = -\sum_c p(c|x) \log p(c|x)$
+    - $SE(X) = -\sum_c p(c \vert x) \log p(c \vert x)$
 
 
 <br>
