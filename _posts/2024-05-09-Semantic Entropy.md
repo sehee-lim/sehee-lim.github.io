@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Training Language Models to Follow Instructions with Human Feedback (InstructGPT)"
+title: "Semantic Uncertainty: Linguistic Invariances for Uncertainty Estimation in Natural Language Generation"
 category: "NLP"
 date: 2024-05-09
 --- 
