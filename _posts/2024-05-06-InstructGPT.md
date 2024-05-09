@@ -18,7 +18,7 @@ token. Such objectives do not align with the goals of safely and
 honestly following user directives. To address this misalignment, this
 paper introduces a method of fine-tuning language models using human
 feedback to ensure they align more closely with user intentions. The
-resulting models are called *InstructGPT*.\
+resulting models are called *InstructGPT*.
 
 
 It is important for language models to be both helpful and honest while
@@ -44,7 +44,7 @@ at supplementing language model performance by using written human
 feedback during training. This approach has been previously utilized in
 specialized tasks such as summarization and
 translation. However, this paper extends its
-application broadly across various language tasks.\
+application broadly across various language tasks.
 
 
 Furthermore, there have been several efforts to reduce harm associated
@@ -157,7 +157,7 @@ results are shown in the Figure. Additionally, InstructGPT
 generated fewer toxic responses compared to GPT-3. While the model
 exhibits a slight performance degradation on NLP datasets, it holds
 value due to its enhanced truthfulness and reduced toxicity in
-responses.\
+responses.
 
 
 InstructGPT still exhibits several limitations. Despite improvements, it
