@@ -9,6 +9,8 @@ date: 2023-10-28
 
 DistilBERT는 BERT라는 대형 언어 모델을 가볍게 만든 모델이다. BERT 모델에 비해 모델 size를 40%로 줄였지만 BERT 모델 성능의 97%를 달성했고 60% 빨라졌다.
 
+<br>
+
 DistilBERT 모델이 나오게 된 **배경**: 큰 규모의 언어 모델의 문제점
 
 1. environmental cost: 대규모 언어 모델의 연산 요구 사항이 기하급수적으로 증가하면서 이러한 모델들을 훈련시키는 데 필요한 전력 소비가 크게 증가함
@@ -17,7 +19,7 @@ DistilBERT 모델이 나오게 된 **배경**: 큰 규모의 언어 모델의 �
 <br>
 <br>
 
-**Knowledge Distillation**
+### **Knowledge Distillation**
 
 모델의 크기를 줄이는 기법으로 큰 모델(teacher 모델)의 지식을 작은 모델(student 모델)로 전달하는 학습 방법이다. 즉 knowledge distillation은 teacher 모델의 **일반화 능력**과 학습한 지식을 student 모델에게 전달한다.
 
@@ -34,7 +36,7 @@ $$
 <br>
 <br>
 
-DistilBERT 모델은 **세 가지 loss**를 사용한다.
+### DistilBERT 모델은 **세 가지 loss**를 사용한다.
 
 **Distillation loss**는 다음과 같다. $t_i$는 teacher 모델의 확률, $s_i$는 student 모델의 확률이다.
 
@@ -63,7 +65,7 @@ $$
 <br>
 <br>
 
-**Student DistilBERT 모델**
+### **Student DistilBERT 모델**
 
 1. NSP 제거함: token-type embedding과 pooler을 제거하였다. 여기서 token-type embedding은 segment embedding과 같은 말로 NSP 작업에서 각 토큰이 첫 번째 문장에 속하는지 혹은 두 번째 문장에 속하는지 나타낸다. 그리고 pooler는 [CLS] 토큰의 표현을 처리한다. [CLS] 토큰은 문장 전체 의미를 포착하도록 설계되었다. Pooler는 이 토큰 출력을 취하여 밀집된 벡터로 변환한다. 그리고 이 벡터는 downstream 작업에 사용된다. 
 2. layer 수를 절반으로 줄임: 상대적으로 hidden state 벡터의 dimension을 줄이는 것보다 layer 수를 줄이는 것이 computation efficiency가 크다.
@@ -72,33 +74,44 @@ $$
 <br>
 <br>
 
-**Result**
+### **Result**
 
-- Table 1
+**Table 1**
 
 ![Untitled](/assets/DistilBERT,%20a%20distilled%20version%20of%20BERT%20smaller,%20f%20180cc28f6f9645e399f49f1ee29899d3/Untitled.png)
 
 DistilBERT 모델은 BERT 모델의 97% 정도 성능을 유지한다.
 
-- Table 2
+<br>
 
-![Untitled](/assets/DistilBERT,%20a%20distilled%20version%20of%20BERT%20smaller,%20f%20180cc28f6f9645e399f49f1ee29899d3/Untitled%201.png)
+**Table 2**
+
+<img src="/assets/DistilBERT,%20a%20distilled%20version%20of%20BERT%20smaller,%20f%20180cc28f6f9645e399f49f1ee29899d3/Untitled%201.png" alt="Untitled" class="center-image4">
+
+
 
 DistilBERT는 downstream 작업에서 BERT와 비슷한 성능을 보인다. IMDb는 감정 분석을 위한 데이터셋이고 SQuAD는 question-answering을 위한 데이터셋이다.
 
-- Table 3
+<br>
 
-![Untitled](/assets/DistilBERT,%20a%20distilled%20version%20of%20BERT%20smaller,%20f%20180cc28f6f9645e399f49f1ee29899d3/Untitled%202.png)
+**Table 3**
+
+<img src="/assets/DistilBERT,%20a%20distilled%20version%20of%20BERT%20smaller,%20f%20180cc28f6f9645e399f49f1ee29899d3/Untitled%202.png" alt="Untitled" class="center-image4">
+
+
 
 DistilBERT 모델은 BERT 모델에 비해 parameter 수가 줄어들었고 더 빠르다.
 
-- Table 4 (Ablation study)
+<br>
 
-![Untitled](/assets/DistilBERT,%20a%20distilled%20version%20of%20BERT%20smaller,%20f%20180cc28f6f9645e399f49f1ee29899d3/Untitled%203.png)
+**Table 4 (Ablation study)**
 
-영향력: $L_{mlm}$ < $L_{cos}$ < $L_{ce}$
+<img src="/assets/DistilBERT,%20a%20distilled%20version%20of%20BERT%20smaller,%20f%20180cc28f6f9645e399f49f1ee29899d3/Untitled%203.png" alt="Untitled" class="center-image2">
 
-그리고 initialization을 random하게 했을 때 성능이 제일 하락했다.
+
+> *영향력: $L_{mlm}$ < $L_{cos}$ < $L_{ce}$*
+
+Initialization을 random하게 했을 때 성능이 제일 하락했다.
 
 <br>
 <br>

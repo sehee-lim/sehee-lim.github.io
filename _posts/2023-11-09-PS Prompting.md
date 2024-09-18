@@ -14,7 +14,7 @@ Plan-and-Solve (PS) Prompting은 모델이 복잡한 문제를 해결할 때 구
 <br>
 
 
-👉**PS Prompting**
+### 👉 **PS Prompting**
 
 ![Untitled](/assets/Plan-and-Solve%20Prompting%20Improving%20Zero-Shot%20Chain%20110e862b3c9d4de7beba672a80fd43fa/Untitled.png)
 
@@ -27,18 +27,18 @@ Plan-and-Solve (PS) Prompting은 모델이 복잡한 문제를 해결할 때 구
 <br>
 
 
-👉**PS+ Prompting**
+### 👉 **PS+ Prompting**
 
 ![Untitled](/assets/Plan-and-Solve%20Prompting%20Improving%20Zero-Shot%20Chain%20110e862b3c9d4de7beba672a80fd43fa/Untitled%201.png)
 
 PS+ Prompting은 PS Prompting에 몇 가지 지시 사항을 더 추가한 것이다.
 
-> *extract relevant variables and their corresponding numerals*
+> *Extract relevant variables and their corresponding numerals*
 > 
 
 이를 추가하여 모델이 중간 단계를 뛰어넘지 않도록 한다.
 
-> *calculate intermediate results (pay attention to calculation and commonsense)*
+> *Calculate intermediate results (pay attention to calculation and commonsense)*
 > 
 
 ”*pay attention to calculation*”를 추가하여 모델이 최대한 정확하게 계산하도록 한다.
@@ -47,15 +47,16 @@ PS+ Prompting은 PS Prompting에 몇 가지 지시 사항을 더 추가한 것�
 <br>
 
 
-▶️ Step 1
+### ▶️ Step 1
 
 ![Untitled](/assets/Plan-and-Solve%20Prompting%20Improving%20Zero-Shot%20Chain%20110e862b3c9d4de7beba672a80fd43fa/Untitled%202.png)
 
 추론 과정을 생성하기 위한 prompting이다. “*Let’s first understand the problem and devise a plan to solve the problem. Then, let’s carry out the plan and solve the problem step by step*”를 통해 모델이 추론 과정을 생성하게 한다.
 
-▶️ Step 2
+### ▶️ Step 2
 
-![Untitled](/assets/Plan-and-Solve%20Prompting%20Improving%20Zero-Shot%20Chain%20110e862b3c9d4de7beba672a80fd43fa/Untitled%203.png)
+
+<img src="/assets/Plan-and-Solve%20Prompting%20Improving%20Zero-Shot%20Chain%20110e862b3c9d4de7beba672a80fd43fa/Untitled%203.png" alt="Untitled" class="center-image3">
 
 이후 Step 1에서 생성된 추론 과정과 합하여 최종 답을 이끌어내게 한다. “*Therefore, the answer (arabic numerals) is*”와 같은 answer extraction prompting을 통해 답을 내게 한다.
 
@@ -63,6 +64,8 @@ PS+ Prompting은 PS Prompting에 몇 가지 지시 사항을 더 추가한 것�
 <br>
 
 
+
+### **Results**
 
 이 기법을 GPT-3에 적용시켜서 실험을 진행했다. 그리고 Arithmetic Reasoning, Commonsense Reasoning, Symbolic Reasoning 데이터셋으로 평가하였다.
 
@@ -78,7 +81,9 @@ PS+ Prompting과 PS Prompting은 모든 데이터셋에 대해서 Zero-shot-CoT�
 
 **Commonsense Reasoning**
 
-![Untitled](/assets/Plan-and-Solve%20Prompting%20Improving%20Zero-Shot%20Chain%20110e862b3c9d4de7beba672a80fd43fa/Untitled%205.png)
+<img src="/assets/Plan-and-Solve%20Prompting%20Improving%20Zero-Shot%20Chain%20110e862b3c9d4de7beba672a80fd43fa/Untitled%205.png" alt="Untitled" class="center-image1">
+
+
 
 PS+ Prompting이 PS Prompting보다 성능이 좋기에 PS+ Prompting만 포함시켰다. Manual-CoT보다는 성능이 낮지만 Zero-shot-CoT보다는 성능이 높다.
 
@@ -86,13 +91,15 @@ PS+ Prompting이 PS Prompting보다 성능이 좋기에 PS+ Prompting만 포함�
 
 **Symbolic Reasoning**
 
-![Untitled](/assets/Plan-and-Solve%20Prompting%20Improving%20Zero-Shot%20Chain%20110e862b3c9d4de7beba672a80fd43fa/Untitled%206.png)
+<img src="/assets/Plan-and-Solve%20Prompting%20Improving%20Zero-Shot%20Chain%20110e862b3c9d4de7beba672a80fd43fa/Untitled%206.png" alt="Untitled" class="center-image1">
+
+
 
 Last Letters 문제에 대해서는 PS+ Prompting은 Manual-CoT와 Zero-shot-CoT보다 성능이 높다. Coin Flip 문제에 대해서는 Manual-CoT보다 성능이 낮지만 Zero-shot-CoT보다는 성능이 높다.
 
 <br>
 
-![Untitled](/assets/Plan-and-Solve%20Prompting%20Improving%20Zero-Shot%20Chain%20110e862b3c9d4de7beba672a80fd43fa/Untitled%207.png)
+<img src="/assets/Plan-and-Solve%20Prompting%20Improving%20Zero-Shot%20Chain%20110e862b3c9d4de7beba672a80fd43fa/Untitled%207.png" alt="Untitled" class="center-image1">
 
 Variable definition과 Plan existence와 calculation error, missing-reasoning step error 사이 상관관계를 보면 음수이다. 즉 Variable definition과 계획이 없으면 calculation error와 missing-reasoning step error이 늘어날 수 있다.
 

@@ -14,7 +14,7 @@ LLM은 몇 가지 예시만으로 새로운 작업을 학습하고 수행할 수
 <br>
 
 
-**Zero-shot Chain-of-Thought**
+## **Zero-shot Chain-of-Thought**
 
 기존의 CoT prompting과는 달리 단계별 few-shot 예시를 필요로 하지 않는다. 그래서 특정 작업에 구애받지 않고 단일 template을 써서 광범위한 과제에 걸쳐 다단계 추론을 이끌어낸다. 이 zero-shot CoT는 두 단계의 prompting으로 이루어진다. 반면 few-shot CoT는 몇 가지 예시를 신중하게 설계해내는 인간의 노력이 필요하다.
 
@@ -26,7 +26,7 @@ LLM은 몇 가지 예시만으로 새로운 작업을 학습하고 수행할 수
 <br>
 
 
-**Experiment**
+## **Experiment**
 
 수학 문제, commonsense reasoning, symbolic reasoning 등으로 이루어진 12개의 데이터셋으로 모델의 성능을 측정하였다. 그리고 zero-shot-CoT prompting 기법을 17개의 모델에 적용하였다. 그리고 CoT를 사용하지 않은 zero-shot prompting 기법, few-shot 기법, few-shot-CoT 기법을 사용했을 때와 비교하였다. 이때 few-shot 기법은 사용하는 예시 순서에 따라 모델 성능에 영향을 주기 때문에 고정된 seed를 사용했다. CoT 기법을 사용했을 때에는 사용하는 예시 순서에 따라 모델 성능이 달라지지 않는다고 알려져 있다.
 
@@ -36,7 +36,7 @@ LLM은 몇 가지 예시만으로 새로운 작업을 학습하고 수행할 수
 <br>
 
 
-**Result**
+## **Result**
 
 ![Untitled](/assets/Large%20Language%20Models%20are%20Zero-Shot%20Reasoners%2088f6da28d1b845188b2959f54fdf3f1f/Untitled%202.png)
 
@@ -54,7 +54,7 @@ CoT prompting 기법을 사용하지 않았을 때에는 모델의 크기를 키
 <br>
 
 
-Prompt Selection
+**Prompt Selection**
 
 ![Untitled](/assets/Large%20Language%20Models%20are%20Zero-Shot%20Reasoners%2088f6da28d1b845188b2959f54fdf3f1f/Untitled%205.png)
 
@@ -64,7 +64,7 @@ Prompt Selection
 <br>
 
 
-**Summary**
+## **Summary**
 
 이 논문에서는 LLM을 활용하여 복잡한 다단계 추론을 수행해내는 zero-shot-CoT 기법을 제안한다. Few-shot-CoT 기법에서는 사람이 prompt를 신중하게 설계해야 한다. 하지만 zero-shot-CoT 기법은 예시를 설계할 필요가 없고 "Let's think step by step"과 같은 단순한 prompt를 통해 다양한 작업에 적용이 가능하다는 점에서 이점이 있다.
 

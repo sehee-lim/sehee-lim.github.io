@@ -9,7 +9,7 @@ date: 2024-02-05
 
 현재 인간의 선호도를 모델에 반영하기 위해서는 인간의 직접적인 개입이 필요하다. 이 과정에서 사용되는 것이 Reinforcement Learning from Human Feedback(RLHF) 방법이다. 이 방식에서는 인간의 선호도 데이터를 기반으로 하여 reward 모델을 훈련시키고, 이 reward 모델을 다시 LLM의 훈련에 사용해서 인간의 선호도를 모델에 반영한다.
 
-![Untitled](/assets/Self-Rewarding%20Language%20Models%2057748685a8ac43bc80add1d6bdcbfadd/Untitled.png)
+<img src="/assets/Self-Rewarding%20Language%20Models%2057748685a8ac43bc80add1d6bdcbfadd/Untitled.png" alt="Untitled" class="center-image2">
 
 하지만 이 방식은 두 가지 단점이 있다. 먼저 인간의 성능 수준에 의해 제한될 수 있다. 그리고 인간의 선호도 데이터로 훈련된 reward 모델은 한번 훈련되면 고정되어 LLM이 훈련하는 도중 변하지 않는다. 보통 reward 모델은 훈련이 완료되면 추가적인 학습이나 조정이 이루어지지 않고 고정 상태로 남는다. 따라서 언어 모델은 계속해서 발전하더라도 reward 모델은 그 발전을 따라가지 못하고 초기에 훈련된 상태 그대로 남게 된다. 즉 reward 모델은 언어 모델 훈련 중 스스로 개선하거나 학습할 수 없다. 이러한 문제에 대응하여 본 논문에서는 언어 모델이 훈련 도중에 자체적으로 Self-Rewarding을 제공하는 새로운 접근 방식을 제안한다. 이 방식에서는 reward 모델과 언어 모델이 각각 따로 존재하지 않게 되어서 위의 두 가지 단점을 해결할 수 있다. 언어 모델이 자체적으로 응답의 질을 평가하는 LLM-as-a-Judge 방식이 활용되기 때문이다. 이 접근 방식은 언어 모델이 지시사항을 따르는 능력 뿐만 아니라 스스로 고품질의 reward를 제공하는 능력을 향상시키는 것을 가능하게 한다. 이로 인해 언어 모델은 인간의 선호도를 더 정확하게 반영하며 동시에 자체적인 훈련 과정을 통해 지속적으로 개선될 수 있는 잠재력을 가진다.
 
@@ -28,7 +28,7 @@ Self-Rewarding 모델은 기본적으로 사전 훈련된 언어 모델과 인�
 <br>
 <br>
 
-**Initialization**
+## **Initialization**
 
 먼저 사람이 생성한 데이터를 학습하는 과정이다. 학습 데이터는 지시사항(instruction)과 그에 대한 응답으로 이루어져 있으며, Open Assistant 데이터셋에서 3200개를 선발했다. 이 데이터들은 Open Assistant에서 응답 품질이 높다고 평가된 상위 순위의 예시들이다. Open Assistant Dataset은 multi-turn 대화 형식으로 구성되어 있기 때문에 각 대화의 첫 번째 turn만을 가져왔다. 이를 통해 모델은 supervised fine-tuning 방법으로 훈련된다. 이 데이터를 **Instruction Fine-Tuning (IFT) 데이터**라고 한다.
 
@@ -39,14 +39,14 @@ Self-Rewarding 모델은 기본적으로 사전 훈련된 언어 모델과 인�
 <br>
 <br>
 
-**Self-Instruction Creation**
+## **Self-Instruction Creation**
 
 훈련된 모델은 자체적으로 훈련 데이터를 수정한다. 이 과정에서 추가적으로 생성된 훈련 데이터는 훈련의 다음 단계에서 사용된다. 먼저 (1) $x_i$라는 새로운 지시사항을 생성한다. 이때 few-shot prompting 방식을 사용하여 IFT 데이터에서 몇 개의 예시를 선택하여 추가한다. 이렇게 생성된 새로운 prompt에 대해 (2) $N$개의 응답 후보를 생성한다. 그리고 LLM-as-a-Judge 방식을 통해 (3) LLM이 $N$개의 응답 후보 각각에 대해 0점부터 5점까지 점수를 매긴다.
 
 <br>
 <br>
 
-**Instruction Following Training**
+## **Instruction Following Training**
 
 초기 훈련은 IFT 데이터와 EFT 데이터를 사용하여 진행된다. 이후 AI Feedback 과정을 통해 훈련 데이터에 추가 데이터를 생성하여 보강한다 보강한다. 이 과정에서 생성된 데이터를 AI Feedback 훈련 데이터(AIFT)라고 한다. 이 데이터는 모델이 스스로 지시사항을 수정하고 추가적인 훈련 데이터로 활용함으로써 얻어진다. AIFT 데이터는 두 가지 형태로 나뉜다.
 
@@ -58,15 +58,15 @@ Self-Rewarding 모델은 기본적으로 사전 훈련된 언어 모델과 인�
 <br>
 <br>
 
-**Overall Self-Alignment Alogrithm**
+## **Overall Self-Alignment Alogrithm**
 
-$M_0$: 사전 학습된 base 모델로 아직 fine-tuning이 되지 않은 상태의 모델이다.
+- $M_0$: 사전 학습된 base 모델로 아직 fine-tuning이 되지 않은 상태의 모델이다.
 
-$M_1$: $M_0$ 모델에서 IFT 데이터와 EFT 데이터로 fine-tuning을 진행한다.
+- $M_1$: $M_0$ 모델에서 IFT 데이터와 EFT 데이터로 fine-tuning을 진행한다.
 
-$M_2$: $M_1$ 모델에서 시작하여 $M_1$ 모델이 생성한 AI Feedback 학습 데이터로 훈련한다. 이때 훈련 방법으로 DPO를 사용한다.
+- $M_2$: $M_1$ 모델에서 시작하여 $M_1$ 모델이 생성한 AI Feedback 학습 데이터로 훈련한다. 이때 훈련 방법으로 DPO를 사용한다.
 
-$M_3$: $M_1$ 모델에서 시작하여 $M_2$ 모델이 생성한 AI Feedback 학습 데이터로 훈련한다. 이때 훈련 방법으로 DPO를 사용한다.
+- $M_3$: $M_1$ 모델에서 시작하여 $M_2$ 모델이 생성한 AI Feedback 학습 데이터로 훈련한다. 이때 훈련 방법으로 DPO를 사용한다.
 
 즉 $t$번째 모델은 $t-1$번째 모델로 수정한 학습 데이터를 사용하는 것이다. 이 과정이 반복되면 reward 모델은 고정 상태로 남지 않으며 스스로 발전할 수 있다.
 

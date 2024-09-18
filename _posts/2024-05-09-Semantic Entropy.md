@@ -9,7 +9,7 @@ date: 2024-05-09
 <br>
 
 
-**ICLR 2023 notable top 25%**
+> ICLR 2023 notable top 25%
 
 <br>
 
@@ -81,7 +81,7 @@ $$
 
 ### Results
 
-![Untitled](/assets/Semantic%20Uncertainty%20Linguistic%20Invariances%20for%20Un%20a67b0feea27b4e62bf0be4dd55de162d/Untitled%201.png)
+<img src="/assets/Semantic%20Uncertainty%20Linguistic%20Invariances%20for%20Un%20a67b0feea27b4e62bf0be4dd55de162d/Untitled%201.png" alt="Untitled" class="center-image1">
 
 실험에 사용한 데이터셋은 question answering task에 관한 TriviaQA 데이터셋이다. Metric으로는 AUROC를 사용했다. AUROC는 false positive rate을 가로축으로, true positive rate을 세로축으로 하는 ROC 곡선 아래의 면적이다. Semantic entropy을 사용했을 때 다른 baseline보다 AUROC 값이 높다. 즉 semantic entropy가 다른 baseline보다 모델 accuracy를 더 잘 예측한다.
 

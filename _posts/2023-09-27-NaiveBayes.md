@@ -9,7 +9,7 @@ date: 2023-09-27
 
 ## Example 1
 
-: classifying text messages as either "spam" or "ham"
+Classifying text messages as either "spam" or "ham"
 
 
 ```python
@@ -132,7 +132,7 @@ plt.show()
 
 ## Example 2
 
-: label이 3개일 때
+Classification with three labels
 
 
 **가상 데이터 생성**
