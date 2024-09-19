@@ -6,6 +6,17 @@
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize";
 
+
+.center {
+  display: block;
+  margin: 0 auto;
+}
+
+.scale {
+  display: block;
+  width: 50%;  
+}
+
 .center-image1 {
     display: block;
     margin: 0 auto;
